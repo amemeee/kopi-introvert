@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Kopi Introvert</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" id="brand" href="#hero">Kopi Introvert</a>
+    <a class="nav-order" href="#order">Order</a>
+  </nav>
+
+  <!-- ── Section 1: Mio promotes the cart ── -->
+  <section class="hero" id="hero" aria-label="Mio, the shy seller">
+    <div class="mio-figure" id="mioFigure">
+      <button class="mio" id="mio" type="button" aria-label="Poke Mio">
+        <img class="mio-img" id="mioImg" alt="" decoding="async">
+        <img class="mio-blink" id="mioBlink" alt="" decoding="async">
+      </button>
+
+      <div class="bubble" id="bubble">
+        <p class="bubble-text" id="bubbleText" aria-hidden="true"></p>
+        <p class="sr-only" id="bubbleLive" aria-live="polite"></p>
+        <div class="bubble-choices" id="choices" role="group" aria-label="Reply to Mio"></div>
+      </div>
+    </div>
+
+    <button class="talk-btn" id="talkBtn" type="button" hidden>Talk to Mio</button>
+    <a class="scroll-cue" href="#order">scroll to order <span aria-hidden="true">↓</span></a>
+  </section>
+
+  <!-- ── Section 2: ordering ── -->
+  <section class="order" id="order" aria-labelledby="orderTitle">
+    <header class="order-head">
+      <h2 id="orderTitle">Order</h2>
+      <p>Pick your kopi. No talking needed.</p>
+    </header>
+
+    <div class="order-grid">
+      <form class="builder" id="builder">
+        <fieldset>
+          <legend>1. Drink</legend>
+          <div class="chips drinks" id="baseChips"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Milk</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="milk" value="condensed" checked><span><b>Condensed</b><small>sweet &amp; creamy</small></span></label>
+            <label class="chip"><input type="radio" name="milk" value="evaporated"><span><b>Evaporated</b><small>“C”</small></span></label>
+            <label class="chip"><input type="radio" name="milk" value="none"><span><b>No milk</b><small>“O”</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Sugar</legend>
+          <div class="chips">
+            <label class="chip" id="kosongChip"><input type="radio" name="sugar" value="none"><span><b>None</b><small>“kosong”</small></span></label>
+            <label class="chip"><input type="radio" name="sugar" value="less"><span><b>Less</b><small>“siew dai”</small></span></label>
+            <label class="chip"><input type="radio" name="sugar" value="normal" checked><span><b>Normal</b><small>&nbsp;</small></span></label>
+            <label class="chip"><input type="radio" name="sugar" value="more"><span><b>More</b><small>“ga dai”</small></span></label>
+          </div>
+          <p class="hint" id="sugarHint">Condensed milk is already sweet, so “none” isn’t an option.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>4. Strength</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="strength" value="weak"><span><b>Light</b><small>“po”</small></span></label>
+            <label class="chip"><input type="radio" name="strength" value="normal" checked><span><b>Normal</b><small>&nbsp;</small></span></label>
+            <label class="chip"><input type="radio" name="strength" value="strong"><span><b>Strong</b><small>“gao”</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>5. Hot or iced</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="temp" value="hot" checked><span><b>Hot</b><small>“panas”</small></span></label>
+            <label class="chip"><input type="radio" name="temp" value="iced"><span><b>Iced</b><small>“peng”</small></span></label>
+          </div>
+        </fieldset>
+
+        <div class="add-row">
+          <div class="add-name">
+            <p class="lingo" id="lingoName">Pick a drink</p>
+            <p class="plain" id="plainName">&nbsp;</p>
+          </div>
+          <div class="qty" role="group" aria-label="Quantity">
+            <button type="button" id="qtyDown" aria-label="One less">−</button>
+            <output id="qty" aria-live="polite">1</output>
+            <button type="button" id="qtyUp" aria-label="One more">+</button>
+          </div>
+          <button type="submit" class="btn main" id="addBtn" disabled>Add <span id="addPrice"></span></button>
+        </div>
+      </form>
+
+      <aside class="summary-wrap">
+        <!-- Mio peeking over the order card (shows once assets/peek.jpg exists) -->
+        <div class="peek" id="peek" aria-hidden="true">
+          <div class="peek-clip"><img class="peek-img" id="peekImg" alt="" decoding="async"></div>
+          <p class="peek-bubble" id="peekBubble"></p>
+        </div>
+        <div class="summary" id="summary" aria-live="polite"></div>
+      </aside>
+    </div>
+  </section>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="mio.js"></script>
+</body>
+</html>
